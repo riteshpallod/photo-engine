@@ -3,7 +3,6 @@ import shelve
 from linking import Linking
 from analyse_tags import Tags
 
-'''
 link = Linking()
 link.addToShelf("actorsridinghorses.jpg", "/home/ritesh/Music")     #0 person, horses
 link.addToShelf("selfie_withhuman.jpg", "/home/ritesh/Music")       #1 person, man
@@ -39,4 +38,3 @@ tag.setTagData('car', [2, 6])
 tag.setTagData('food', [7,11])
 tag.setTagData('cap', [8])
 tag.setTagData('bat', [8])
-'''

@@ -1,4 +1,7 @@
 import shelve
+'''
+stores and fetches tags from dict
+'''
 
 class Tags:
 
@@ -21,11 +24,11 @@ class Tags:
         tag_data = []
         for tag in tags:
             if tag in self.keys:
-                tag_data.append(self.tags_shelf[tag])
-            
+                tag_data.append(self.tags_shelf[tag])                
         
         return tag_data
-    
+
+
     def setupHardcodedInfo(self):
         self.tags_shelf['boy'] = [1,2,4,6]
         self.tags_shelf['cara'] = [1,2,6,10]
