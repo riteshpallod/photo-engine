@@ -57,9 +57,9 @@ def load_and_detect(TEST_IMAGE_PATHS):
     NUM_CLASSES = 545 
     print("pwd", os.getcwd())
     
-    #PATH_TO_CKPT = 'object_detection/ssd_mobilenet_v1_coco_2017_11_17/frozen_inference_graph.pb'
-    PATH_TO_CKPT = 'object_detection/faster_rcnn_inception_resnet_v2_atrous_lowproposals_oid_2018_01_28/frozen_inference_graph.pb'
-    PATH_TO_LABELS = os.path.join('object_detection/data', 'oid_bbox_trainable_label_map.pbtxt')
+    PATH_TO_CKPT = 'object_detection/ssd_mobilenet_v1_coco_2017_11_17/frozen_inference_graph.pb'
+    #PATH_TO_CKPT = 'object_detection/faster_rcnn_inception_resnet_v2_atrous_lowproposals_oid_2018_01_28/frozen_inference_graph.pb'
+    PATH_TO_LABELS = os.path.join('object_detection/data', 'mscoco_label_map.pbtxt')
 
     detection_graph = tf.Graph()
     with detection_graph.as_default():
@@ -86,7 +86,6 @@ def load_and_detect(TEST_IMAGE_PATHS):
             detection_classes = detection_graph.get_tensor_by_name('detection_classes:0')
             num_detections = detection_graph.get_tensor_by_name('num_detections:0')
 
-            print('vibhinna tensors got. ') 
             for image_path in TEST_IMAGE_PATHS:
                 print('image path: ', image_path)
                 image = Image.open(image_path)
@@ -101,7 +100,6 @@ def load_and_detect(TEST_IMAGE_PATHS):
                 (boxes, scores, classes, num) = sess.run(
                     [detection_boxes, detection_scores, detection_classes, num_detections],
                     feed_dict={image_tensor: image_np_expanded})        
-
                 print('detection done ')    
                 tags = visualize_boxes_and_labels_on_image_array(
                     np.squeeze(boxes),
