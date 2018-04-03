@@ -12,10 +12,10 @@ class Linking:
     pipeline = photo_shelf["pipeline"]
 
     def addToShelf(self, file_name, file_location):
-        self.photo_shelf[str(self.counter)] = [file_name, file_location] #check needed
+        self.photo_shelf[str(len(self.photo_shelf.keys()))] = [file_name, file_location] #check needed
         
         #assuming that there is always going to be a piplline
-        self.photo_shelf["pipeline"] += [self.counter]
+        self.photo_shelf["pipeline"] += [len(self.photo_shelf.keys())-1] #[self.counter]
         print(self.counter)
         self.counter += 1
 
