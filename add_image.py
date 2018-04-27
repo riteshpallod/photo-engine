@@ -57,11 +57,39 @@ def execute_pipeline():
     print("done")
 
 if __name__ == "__main__":
+    '''
     add_images_to_shelve("/home/ritesh/0be/Goa_NOKIA_6/IMG_20180219_143707.jpg")
     add_images_to_shelve("/home/ritesh/Desktop/percy/besy/IMG-20171008-WA0005.jpg")
     add_images_to_shelve("/home/ritesh/Desktop/percy/nokia-till15/Camera/IMG_20171106_081250.jpg")
     add_images_to_shelve("/home/ritesh/Desktop/percy/nokia-till15/Camera/IMG_20171107_221610.jpg")
     add_images_to_shelve("/home/ritesh/Desktop/percy/nokia-till15/Camera/IMG_20171107_204955.jpg")
+    
+    add_images_to_shelve("/home/ritesh/Desktop/Photo2/test_images/art.cellphonekids.gi.jpg")
+    add_images_to_shelve("/home/ritesh/Desktop/Photo2/test_images/aff9ddd7f6abc4befa5e4317a5eee5e6.jpg")
+    add_images_to_shelve("/home/ritesh/Desktop/Photo2/test_images/maxresdefault.jpg")
+    add_images_to_shelve("/home/ritesh/Desktop/Photo2/test_images/cats_n_dogs.jpg")
+    add_images_to_shelve("/home/ritesh/Desktop/Photo2/test_images/WhatsApp.jpeg")
+    '''
+    add_images_to_shelve("/home/ritesh/Documents/cat2.jpg")
+    add_images_to_shelve("/home/ritesh/Documents/image2.jpg")
+    add_images_to_shelve("/home/ritesh/Documents/carwithpersonanddog.jpeg")
+    add_images_to_shelve("/home/ritesh/Documents/mananddof.jpg")
+    add_images_to_shelve("/home/ritesh/Documents/image5.jpg")
+    add_images_to_shelve("/home/ritesh/Documents/image3.jpg")
+    add_images_to_shelve("/home/ritesh/Documents/image6.jpg")
+    add_images_to_shelve("/home/ritesh/Documents/cake.jpg")
+    add_images_to_shelve("/home/ritesh/Documents/mangiraffe.jpeg")
+    add_images_to_shelve("/home/ritesh/Documents/cak2.jpg")
+    add_images_to_shelve("/home/ritesh/Documents/car.jpg")
+    add_images_to_shelve("/home/ritesh/Documents/caranddogandperson.jpeg")
+    add_images_to_shelve("/home/ritesh/Documents/food.jpg")
+    add_images_to_shelve("/home/ritesh/Documents/mankite.jpeg")
+    add_images_to_shelve("/home/ritesh/Documents/womanumbrella.jpeg")
+    add_images_to_shelve("/home/ritesh/Documents/cat1.jpg")
+    add_images_to_shelve("/home/ritesh/Documents/cake3.jpg")
+    add_images_to_shelve("/home/ritesh/Documents/image4.jpg")
+    add_images_to_shelve("/home/ritesh/Documents/catanddogs.jpg")
+
 
     execute_pipeline()
     

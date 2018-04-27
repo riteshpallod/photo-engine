@@ -1,7 +1,7 @@
 from analyse_tags import Tags
 from linking import Linking
 from query_process import return_tags_from_query
-
+import os
 '''
 processes query and returns image locations
 '''
@@ -25,9 +25,10 @@ def fetch_common_ids_from_tags(tags):
     return list(common_set)
 
 
-if __name__ == "__main__":
+
+def fetch_images_from_query(query): 
     tag_obj = Tags()
-    tags = return_tags_from_query("person with many cats")
+    tags = return_tags_from_query(query)
     print("tags fetched: ", tags)
     tag_data = tag_obj.getTagData(tags)
     print("tag data fetched: ", tag_data)
@@ -35,4 +36,11 @@ if __name__ == "__main__":
     print("img shortlisted: ", ids)
     photo_locations = fetch_images_according_to_ids(ids)
     for photo in photo_locations:
-        print(photo)
+        print(os.system("google-chrome " + photo))
+    return photo_locations
+   
+
+if __name__ == "__main__":
+    loc = fetch_images_from_query("person")
+    for i in loc:
+        print(i)

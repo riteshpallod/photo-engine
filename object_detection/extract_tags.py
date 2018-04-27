@@ -15,6 +15,7 @@ from PIL import Image
 
 
 sys.path.append("object_detection")
+#sys.path.append("..")
 print('in extract.. current dir: ', os.getcwd())
 from utils import label_map_util
 
