@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <title> Qabir </title>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='images.jpg')}}" />
+
+        <style>
+            body
+            {
+                background-color: #317a74;
+                background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+            }
+
+            .search_bar
+            {
+                position : relative;
+                top : 50%;
+            }
+
+            input[type=text]
+            {
+                width: 70%;
+                box-sizing: border-box;
+                border: 2px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+                background-color: white;
+                background-image: url('searchicon.png');
+                background-position: 10px 10px;
+                background-repeat: no-repeat;
+                padding: 12px 20px 12px 40px;
+             }
+
+            input[type=submit]
+            {
+                background-color: #002552;
+                border: none;
+                color: white;
+                padding: 16px 32px;
+                text-decoration: none;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+
+            input[type=button]
+            {
+                background-color: #002552;
+                border: none;
+                color: white;
+                padding: 5px 25px;
+                text-decoration: none;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+
+            img[type=result]
+            {
+                border: 1px solid #ddd; /* Gray border */
+                border-radius: 4px;  /* Rounded border */
+                padding: 5px; /* Some padding */
+                width: 150px; /* Set a small width */
+            }
+
+            .wrapper
+            {
+                position: relative;
+                bottom: 0;
+                right:0;
+            }
+
+        
+
+
+.header {
+    text-align: center;
+    padding: 32px;
+}
+.row1 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+        </style>
+    </head>
+
+
+    <body>
+    {% block content %}
+        <div class="container">
+            <div class="page-header"> <span style="color:#002552; font-family: 'Lora', serif; font-size:45px;">
+            <h1 align="center">Query Based Image Retrieval</h1></span>
+            </div>
+
+            <div class="row" id="search_bar" align="center">
+              <form action="/search" method="post">
+                  <input type="text" name="query" placeholder="search..">
+                  <input type="submit" value="SEARCH">
+              </form>
+            </div>
+
+        {% if show_results %}
+            {% if photo_names %}       
+                <div class="row1">
+                {% for array in photo_names %}
+                    <div class = "column">
+                    {% for img_name in array %}
+                        <img src="/static/images/{{img_name}}" style="width: 100%">
+                    {% endfor %}
+                    </div>   
+                {% endfor %}
+                </div>
+            {% else %}
+                <h1>Sorry, no images for input query...</h1>
+            {% endif %}
+        {% endif %}
+    {% endblock %}
+    </body>
+
+</html>

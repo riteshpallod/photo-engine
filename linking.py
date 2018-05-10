@@ -6,32 +6,52 @@ fetches it back
 '''
 
 class Linking:
-    photo_shelf = shelve.open("photo_db.dat")
-    counter = len(photo_shelf.keys())
-    keys = photo_shelf.keys()
-    pipeline = photo_shelf["pipeline"]
+
 
     def addToShelf(self, file_name, file_location):
-        self.photo_shelf[str(len(self.photo_shelf.keys()))] = [file_name, file_location] #check needed
+        photo_shelf = shelve.open("photo_db.dat")
+        counter = len(photo_shelf.keys())
+        keys = photo_shelf.keys()
+        pipeline = photo_shelf["pipeline"]
+        
+        photo_shelf[str(len(photo_shelf.keys()))] = [file_name, file_location] #check needed
         
         #assuming that there is always going to be a piplline
-        self.photo_shelf["pipeline"] += [len(self.photo_shelf.keys())-1] #[self.counter]
-        print(self.counter)
-        self.counter += 1
+        photo_shelf["pipeline"] += [len(photo_shelf.keys())-1] #[self.counter]
+        
+        photo_shelf.close()
+        
 
     def getPhotoFromShelf(self, key):
-        if key not in self.keys:
+        photo_shelf = shelve.open("photo_db.dat")
+        keys = photo_shelf.keys()
+        
+        if key not in keys:
+            photo_shelf.close()
             return
-        return self.photo_shelf[str(key)]
+        isko_bhej = photo_shelf[str(key)]
+        photo_shelf.close()    
+        return isko_bhej
+
+        
 
     def create_pipeline(self):
-        self.photo_shelf["pipeline"] = []
+        photo_shelf = shelve.open("photo_db.dat")
+        photo_shelf["pipeline"] = []
+        photo_shelf.close()    
+
 
     def load_pipeline(self):
-        return self.photo_shelf["pipeline"]
+        photo_shelf = shelve.open("photo_db.dat")
+        isko_bhej = photo_shelf["pipeline"]
+        photo_shelf.close()    
+
+        return isko_bhej
 
     def update_pipeline(self, new_pipe):
-        self.photo_shelf["pipeline"] = new_pipe    
+        photo_shelf = shelve.open("photo_db.dat")
+        photo_shelf["pipeline"] = new_pipe
+        photo_shelf.close()        
 
 if __name__ == '__main__':
     link = Linking()

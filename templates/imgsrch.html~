@@ -1,0 +1,6 @@
+{% for img_name in results %}
+                <tr>
+                    <td>{{ img_name }}</td>
+                    <td><img src="/pathtoyourimg" alt="{{ img_name }}"></td>
+                </tr>
+            {% endfor %}

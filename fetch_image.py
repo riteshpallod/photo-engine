@@ -35,8 +35,10 @@ def fetch_images_from_query(query):
     ids = fetch_common_ids_from_tags(tag_data)
     print("img shortlisted: ", ids)
     photo_locations = fetch_images_according_to_ids(ids)
+    '''
     for photo in photo_locations:
         print(os.system("google-chrome " + photo))
+    '''
     return photo_locations
    
 

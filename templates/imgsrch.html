@@ -1,0 +1,26 @@
+{% extends "header.html" %}
+
+<body>
+    {% block content %}
+        {% if photo_names %}
+            <h1>Results</h1>
+            
+            <div class="row">
+            {% for array in photo_names %}
+                <div class = "column">
+                {% for img_name in array %}
+                    <img src="/static/images/{{img_name}}" style="width: 100%">
+                {% endfor %}
+                </div>   
+            {% endfor %}
+            </div>
+            
+        {% else %}
+            <h1>Sorry, no images for input query...</h1>
+        {% endif %}
+
+    {% endblock %}
+</body>
+
+</html>
+
